@@ -75,7 +75,7 @@ def nms_overlaps(boxes):
     areas_flat = (boxes_flat[:,2]- boxes_flat[:,0]+1.0)*(
         boxes_flat[:,3]- boxes_flat[:,1]+1.0)
     areas = areas_flat.view(boxes.size(0), boxes.size(1))
-    union = -inters + areas[None] + areas[:, None]
+    union = -inters + areas[:, None] + areas[None] 
     return inters / union
 
 def layer_init(layer, init_para=0.1, normal=False, xavier=True):
